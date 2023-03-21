@@ -10,29 +10,44 @@ const parseCharacter = eachCharacter => {
     house: eachCharacter.house,
   }
 }
-//Llamada a api para todos los personajes
-const getCharactersGryffindor = () => {
-  return (
-    fetch('https://hp-api.onrender.com/api/characters/house/gryffindor')
-      .then(response => response.json())
-      .then(data => {
-        return data.map(parseCharacter)
-      })
-  )
+
+const getCharactersByHouse = (inputHouse) => {
+  let url;
+  switch (inputHouse) {
+    case "Gryffindor":
+      url = "https://hp-api.onrender.com/api/characters/house/gryffindor";
+      break;
+    case "Slytherin":
+      url = "https://hp-api.onrender.com/api/characters/house/Slytherin";
+      break;
+    case "Hufflepuff":
+      url = "https://hp-api.onrender.com/api/characters/house/Hufflepuff";
+      break;
+    case "Ravenclaw":
+      url = "https://hp-api.onrender.com/api/characters/house/Ravenclaw";
+      break;
+    default:
+      throw new Error("Invalid selection");
+  }
+  return fetch(url)
+    .then((response) => response.json())
+    .then(data => {
+      return data.map(parseCharacter)
+    })
 }
 
-//Llamada a api para solo un personje
-const getSingleCharacter = (id) => {
-  return (
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(response => response.json())
-      .then(parseCharacter)
-  )
-}
+
+// //Llamada a api para solo un personje
+// const getSingleCharacter = (id) => {
+//   return (
+//     fetch(`https://rickandmortyapi.com/api/character/${id}`)
+//       .then(response => response.json())
+//       .then(parseCharacter)
+//   )
+// }
 //Objeto a exportar para utilizar las llamadas a api
 const api = {
-  getCharactersGryffindor,
-  getSingleCharacter,
+  getCharactersByHouse,
 }
 
 export default api
