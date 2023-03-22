@@ -2,6 +2,10 @@
 
 .detail__container {
     background-color: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
       border-radius: 3.125rem;
       box-shadow: 0 0 1.5625rem #a1a381;
       
@@ -9,7 +13,9 @@
       margin: 0 auto;
       width: 20rem;
       @include tablet {
-        width: rem(500);
+        
+        width: rem(600);
+        height: 400px;
         
       }
       
@@ -24,13 +30,15 @@
 
 }
 .detail__content {
-        align-items: center;
+        
         display: flex;
         flex-direction: column;
 
           @include tablet {
             flex-direction: row;
-            gap: 20px;
+            justify-content: space-between;
+            gap: 30px;
+            align-items:flex-start
   
           }
 }

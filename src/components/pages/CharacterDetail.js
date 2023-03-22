@@ -100,7 +100,7 @@ const CharacterDetail = ({ findCharacter }) => {
         <div className="detail__content">
 
           <img className="detail__img" src={foundCharacter.image !== '' ? foundCharacter.image : require('../../images/avatar7.png')} alt={foundCharacter.name} />
-          <span>{renderIconHouse()}</span>
+          {/* <span>{renderIconHouse()}</span> */}
           <div className="detail__info">
 
             <h2 className="detail__info--title">{foundCharacter.name}</h2>
