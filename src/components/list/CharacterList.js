@@ -1,4 +1,4 @@
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "../list/CharacterCard";
 
 const CharacterList = ({ characterList }) => {
   const renderList = characterList.map(eachCharacter => {

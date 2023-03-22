@@ -1,5 +1,5 @@
-import FilterHouse from "./FilterHouse";
-import FilterName from "./FilterName";
+import FilterHouse from "../filter/FilterHouse";
+import FilterName from "../filter/FilterName";
 
 const Filters = ({ inputName, handleInputName, handleInputHouse, inputHouse }) => {
   const handleSubmit = (ev) => {
