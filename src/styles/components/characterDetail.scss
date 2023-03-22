@@ -1,0 +1,78 @@
+
+
+.detail__container {
+    background-color: $primary;
+      border-radius: 3.125rem;
+      box-shadow: 0 0 1.5625rem #a1a381;
+      
+      padding: rem(30) rem(60);
+      margin: 0 auto;
+      width: 20rem;
+      @include tablet {
+        width: rem(500);
+        
+      }
+      
+}
+.detail__link {
+  align-self: flex-start;
+  color: #221f20;
+  position: absolute;
+  text-decoration: none;
+  -webkit-transform: translate(-5.3125rem, 0.625rem);
+  transform: translate(-5.3125rem, 0.625rem);
+
+}
+.detail__content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+          @include tablet {
+            flex-direction: row;
+            gap: 20px;
+  
+          }
+}
+.detail__img {
+  border-radius: 50%;
+  box-shadow: 0 8px 24px hsla(0, 0%, 100%, 0.2);
+  height: 11.25rem;
+  object-fit: cover;
+  object-position: center;
+  width: 11.25rem;
+}
+.detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  width: 9.375rem;
+}
+.detail__info--title {
+  font-size: rem(18);
+  text-align: start;
+}
+.detail__info--list {
+  display: flex;
+  flex-direction: column;
+
+  
+  font-size: .75rem;
+  gap: 0.625rem;
+  list-style: none;
+}
+
+.detail__info--list--item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.icon__house {
+  width: 50px;
+  
+}
+
+.icons__detail {
+  font-size: 15px;
+  margin-right: 10px;
+}

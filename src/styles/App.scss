@@ -1,1 +1,15 @@
-// @import 'layout/header';
+@import './core/variables.scss';
+@import './core/reset.scss';
+@import './core/mixins.scss';
+@import './core/mediaqueries.scss';
+@import './core/functions.scss';
+@import './components/main.scss';
+@import './components/main.scss';
+@import './components/header.scss';
+@import './components/filters.scss';
+@import './components/filterHouse.scss';
+@import './components/filterName.scss';
+@import './components/filterStatus.scss';
+@import './components/list.scss';
+@import './components/errorNotFound.scss';
+@import './components/characterDetail.scss';

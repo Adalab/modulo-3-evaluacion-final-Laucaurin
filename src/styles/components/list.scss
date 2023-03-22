@@ -1,0 +1,59 @@
+.nav__link {
+@include parseLink;
+}
+.section__list {
+  padding: rem(30);
+ 
+}
+
+.list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(30);
+    list-style: none;
+    flex-wrap: wrap;
+    margin-top: rem(25);
+    
+  }
+
+  .list__element {
+   
+    width: rem(200);
+    // height: rem(370);
+    background-color:$secundary;
+    box-shadow: 5px 3px 50px -15px $primary;
+    color: white;
+    border-radius: rem(10);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: rem(10);
+    text-align: center;
+    padding-bottom: rem(10);
+    border-radius: rem(10);
+    transition: 0.6s;
+    cursor: pointer;
+     &:hover {
+        box-shadow: 7px 5px 56px -10px rgb(28, 109, 95);
+      }
+    &--img {
+    height: rem(240);
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+      object-fit: cover;
+        object-position: center;
+    
+    
+   
+    }
+    &--name {
+      font-size: rem(16);
+    }
+    &--species {
+      font-size: rem(14);
+     
+    ;
+    }
+  }

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import '../styles/App.scss';
 import api from '../services/api';
 import CharacterList from './list/CharacterList';
 import Filters from './filter/Filters';
 import CharacterDetail from './pages/CharacterDetail';
+import ErrorNotFound from './ErrorNotFound';
+import logo from '../images/header.png'
+
 // Ej img: import logoMenu from '../images/ico-menu.svg';
 
 function App() {
@@ -15,9 +18,10 @@ function App() {
   const [inputStatus, setInputStatus] = useState('all');
 
   useEffect(() => {
-    api.getCharactersByHouse(inputHouse).then(infoCharacters => {
-      setCharacterList(infoCharacters);
-    });
+    api.getCharactersByHouse(inputHouse)
+      .then(infoCharacters => {
+        setCharacterList(infoCharacters);
+      })
   }, [inputHouse]);
 
 
@@ -41,6 +45,7 @@ function App() {
       return true; // Show all characters
     } else if (inputStatus === 'alive') {
       return eachCharacter.alive === true; // Show only alive characters
+
     } else {
       return eachCharacter.alive === false; // Show only dead characters
 
@@ -54,7 +59,13 @@ function App() {
     // .sort((a, b) => a.name.localeCompare(b.name))
   }
 
+  const findCharacter = (value) => {
+    return characterList.find((eachCharacter) => eachCharacter.id === value);
+
+  }
+
   const handleClickReset = () => {
+
     setInputName('')
     setInputHouse('gryffindor')
     setInputStatus('all')
@@ -63,11 +74,13 @@ function App() {
   return (
     <div className='container'>
       <header className='header'>
-        <h1>Harry Potter</h1>
+        <img className='header__img' src={logo} alt="" />
+        {/* <img className='header__img2' src={logo2} alt="" /> */}
+
       </header>
       <main className='main'>
         <Routes>
-          <Route path="/" element={
+          <Route exact path="/" element={
             <>
               <Filters
                 inputName={inputName}
@@ -82,13 +95,10 @@ function App() {
                 characterList={renderFilteredList()} />
             </>} />
 
-          <Route path="/character/:id" element={<CharacterDetail characterList={characterList} />} />
-          <Route path="*" element={<Navigate replace to="/" />} />
+          <Route path="/character/:id" element={<CharacterDetail characterList={characterList} findCharacter={findCharacter} />} />
+          <Route path='*' element={<ErrorNotFound />} />
         </Routes>
-
-
       </main>
-
     </div>
   );
 }

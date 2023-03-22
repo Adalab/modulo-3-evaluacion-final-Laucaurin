@@ -1,0 +1,31 @@
+// @import '../core/mixins.scss';
+.form__name {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  font-size: 14px;
+
+  @include fieldset;
+ 
+
+  &--input {
+  
+    @include input;
+
+    // &:hover {
+    //   //General properties
+    //   background-color: $color-green;
+    //   color: $color-white;
+    //   box-shadow: 0 0 rem(25) $color-blue;
+    // }
+  }
+
+  &--label{
+    font-size: 18px;
+  }
+
+//   ::placeholder {
+//   color: white;
+//   background-color: $primary;
+// }
+}

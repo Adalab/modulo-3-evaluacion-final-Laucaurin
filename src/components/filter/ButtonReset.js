@@ -1,8 +1,9 @@
 const ButtonReset = ({ handleClickReset }) => {
-  const handleReset = () => {
 
+  const handleReset = () => {
     handleClickReset();
   }
+
   return (
     <button className="btn__reset" type='reset' onClick={handleReset}>Reset</button>
   )

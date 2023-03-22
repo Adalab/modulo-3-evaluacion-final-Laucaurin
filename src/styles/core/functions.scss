@@ -1,0 +1,6 @@
+// la función acepta un número de pixels (los que vayamos a usar). Y nos devuelve el cálculo en unidades `rem` :)
+$defaultFontSize: 16;
+
+@function rem($pixels) {
+  @return ($pixels / $defaultFontSize * 1rem);
+}
