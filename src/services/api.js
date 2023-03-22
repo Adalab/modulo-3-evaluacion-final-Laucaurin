@@ -6,7 +6,7 @@ const parseCharacter = eachCharacter => {
     species: eachCharacter.species,
     alive: eachCharacter.alive,
     gender: eachCharacter.gender,
-    image: eachCharacter.image !== "" ? eachCharacter.image : '../images/descarga.jpeg',
+    image: eachCharacter.image !== "" ? eachCharacter.image : require('../images/descarga.jpeg'),
     house: eachCharacter.house,
   }
 }

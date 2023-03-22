@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import '../styles/App.scss';
 import api from '../services/api';
 import CharacterList from './list/CharacterList';
@@ -11,7 +11,8 @@ function App() {
 
   const [characterList, setCharacterList] = useState([]);
   const [inputName, setInputName] = useState('');
-  const [inputHouse, setInputHouse] = useState('Gryffindor');
+  const [inputHouse, setInputHouse] = useState('gryffindor');
+  const [inputStatus, setInputStatus] = useState('all');
 
   useEffect(() => {
     api.getCharactersByHouse(inputHouse).then(infoCharacters => {
@@ -25,20 +26,38 @@ function App() {
   }
 
   const handleInputHouse = (value) => {
-
-    console.log('selected house', value)
     setInputHouse(value)
+  }
+
+  const handleInputStatus = (value) => {
+    setInputStatus(value)
   }
 
   const filterByName = eachCharacter => eachCharacter.name.toLocaleLowerCase().includes(inputName.toLocaleLowerCase())
 
 
+  const filterByStatus = (eachCharacter) => {
+    if (inputStatus === 'all') {
+      return true; // Show all characters
+    } else if (inputStatus === 'alive') {
+      return eachCharacter.alive === true; // Show only alive characters
+    } else {
+      return eachCharacter.alive === false; // Show only dead characters
+
+    };
+  }
 
   const renderFilteredList = () => {
     return characterList
       .filter(filterByName)
-    // .filter(filterByHouse)
+      .filter(filterByStatus)
     // .sort((a, b) => a.name.localeCompare(b.name))
+  }
+
+  const handleClickReset = () => {
+    setInputName('')
+    setInputHouse('gryffindor')
+    setInputStatus('all')
   }
 
   return (
@@ -55,13 +74,16 @@ function App() {
                 handleInputName={handleInputName}
                 inputHouse={inputHouse}
                 handleInputHouse={handleInputHouse}
+                inputStatus={inputStatus}
+                handleInputStatus={handleInputStatus}
+                handleClickReset={handleClickReset}
               />
               <CharacterList
                 characterList={renderFilteredList()} />
             </>} />
 
           <Route path="/character/:id" element={<CharacterDetail characterList={characterList} />} />
-          {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
 
 
