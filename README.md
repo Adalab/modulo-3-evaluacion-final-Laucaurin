@@ -1,4 +1,4 @@
-# Buscador de Cócteles
+# Buscador de personajes de Harry Potter
 
 El ejercicio consiste en desarrollar una aplicación web que contenga y que nos permita buscar entre un listado de personajes de la secuela de Harry Potter.
 

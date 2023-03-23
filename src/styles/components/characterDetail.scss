@@ -10,7 +10,7 @@ height: 70vh;
   padding-bottom:rem(20);
   border-radius: 20px;
   background-color: $secundary;
-  box-shadow: rgba(228, 221, 165, 0.74) 0px 8px 24px;
+  box-shadow: rgba(199, 193, 150, 0.452) 0px 8px 24px;
   @include tablet(){
     flex-direction: row;
     padding-left: rem(20);
@@ -36,7 +36,7 @@ height: 70vh;
   width: rem(180);
   height: rem(180);
   border-radius: 50%;
-  box-shadow: rgba(208, 223, 148, 0.697) 0px 8px 24px; 
+  box-shadow: rgba(141, 141, 140, 0.579) 0px 8px 24px; 
   object-fit: cover;
   object-position: center;
   margin: 0 30px 30px  30px;
