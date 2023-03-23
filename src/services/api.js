@@ -1,5 +1,3 @@
-
-
 const parseCharacter = eachCharacter => {
   return {
     name: eachCharacter.name,
@@ -12,7 +10,6 @@ const parseCharacter = eachCharacter => {
   }
 }
 
-
 const getCharactersByHouse = (inputHouse) => {
   const url = `https://hp-api.onrender.com/api/characters/house/${inputHouse}`
   return fetch(url)
@@ -21,26 +18,10 @@ const getCharactersByHouse = (inputHouse) => {
 
       return data.map(parseCharacter)
     })
-
 }
-
-
-// const getSingleCharacter = (id) => {
-//   return (
-//     fetch(`https://hp-api.onrender.com/api/characters/${id}`)
-//       .then(response => response.json())
-//       .then(data => {
-//         console.log(data)
-//         return data.map(parseCharacter)
-
-//       })
-//   )
-// }
-
 
 const api = {
   getCharactersByHouse,
-  // getSingleCharacter,
 }
 
 export default api

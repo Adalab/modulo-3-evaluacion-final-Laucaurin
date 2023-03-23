@@ -1,41 +1,32 @@
-
 .form__status {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-
-
- @include fieldset ;
- 
- @include desktop {
-  
-  flex-grow: 0;
-
- }
+  @include fieldset ;
+  @include desktop {
+    flex-grow: 0;
+  }
 
   &--legend {
     margin-bottom: rem(10);
-    text-align: center;
+    text-align: start;
     font-size: 18px;
-    @include tablet {
-        padding-left: 10px;
-      }
   }
+
   &--container {
     display: flex;
     gap:30px;
-  }
+  } 
 
-  
   &--icons{
   font-size: 18px;
   padding-left: 7px;
   color: black;
-  
+    &:hover {
+      color: $primary;
+    }
+    @include tablet {
+      font-size: 20px;
+    }
   }
-  // @include tablet {
-  // //   margin-left: rem(5);
-  // //   margin-right: rem(20);
-  // // }
-  // }
 }

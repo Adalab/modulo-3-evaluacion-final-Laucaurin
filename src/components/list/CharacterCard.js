@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const CharacterCard = ({ eachCharacter }) => {
+
   return (
     <NavLink className='nav__link' to={`/character/${eachCharacter.id}`}>
       <li className='list__element'>

@@ -1,24 +1,12 @@
-@import '../core/mixins.scss';
-
 .form__house {
   display: flex;
   flex-direction: column;
-  gap: rem(8);
-  @include fieldset ();
-  
-
+  @include fieldset;
   &--label {
   font-size: 18px;
   }
 
   &--options {
-    @include input();
-
-    // &:hover {
-    //   //General properties
-    //   background-color: $color-green;
-    //   color: $color-white;
-    //   box-shadow: 0 0 rem(25) $color-blue;
-    // }
+    @include input;
   }
 }

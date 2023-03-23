@@ -6,171 +6,144 @@ height: 70vh;
 }
 
 .detail__container {
-         //General properties
-        padding-top: rem(20);
-        padding-bottom:rem(20);
-   
-        background-color: $secundary;
-      box-shadow: rgba(228, 221, 165, 0.74) 0px 8px 24px;
-        @include tablet(){
-            flex-direction: row;
-            padding-left: rem(20);
-            padding-right: rem(20);
-            
-        }
-    
-      
+  padding-top: rem(20);
+  padding-bottom:rem(20);
+  border-radius: 20px;
+  background-color: $secundary;
+  box-shadow: rgba(228, 221, 165, 0.74) 0px 8px 24px;
+  @include tablet(){
+    flex-direction: row;
+    padding-left: rem(20);
+    padding-right: rem(20);
+  }      
 }
 
 .detail__content {
-    
-          justify-self: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-         
-    
-          color:white;
-        
-          @include tablet() {
-            flex-direction: row;
-            padding-top: rem(0);
-            gap: 30px;
-          }
-        
-        
-           
-          }
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  color:white;
+  @include tablet() {
+    flex-direction: row;
+    padding-top: rem(0);
+    gap: 30px;
+  }
+}
 
 .detail__img {
- 
-//General properties
   width: rem(180);
   height: rem(180);
   border-radius: 50%;
-  box-shadow: rgba(208, 223, 148, 0.697) 0px 8px 24px;
-  //Display
+  box-shadow: rgba(208, 223, 148, 0.697) 0px 8px 24px; 
   object-fit: cover;
   object-position: center;
- margin: 0 30px 30px  30px;
-
+  margin: 0 30px 30px  30px;
   @include tablet() {
     width: rem(220);
     height: rem(220);
   }
-
   @include desktop() {
     width: rem(300);
     height: rem(300);
   }
 }
+
 .detail__info {
-  //General properties
-    width: rem(280);
-    //Display
-    display: flex;
-    flex-direction: column;
-    gap: rem(15);
-  
-    @include tablet() {
-      width: rem(300);
-    
-    }
-  
-    @include desktop() {
-      width: rem(230); 
-       margin-right: 25px;
-    }
-}
-.detail__info--title {
-  font-size: rem(16);
-  text-align: center;
-  
+  width: rem(280);
+  display: flex;
+  flex-direction: column;
+  gap: rem(15);
+  @include tablet() {
+    width: rem(300)
+  }
+  @include desktop() {
+    width: rem(230); 
+    margin-right: 25px;
+  }
+
+  &--title {
+    font-size: rem(16);
+    text-align: center;
     @include tablet() {
       font-size: rem(20);
       padding-bottom: rem(15);
       text-align: start;
     }
-  
     @include desktop() {
       font-size: rem(24);
       padding-bottom: rem(20);
     }
-}
-.detail__info--list {
-  //General properties
-  // position: relative;
-  // bottom: 70px;
+  }
+  &--list {
     list-style: none;
     font-size: rem(14);
     gap: rem(10);
-    //Display
     display: flex;
     flex-direction: column;
     margin-left: 50px;
-  
     @include tablet() {
       font-size: rem(18);
       gap: rem(15);
       margin-left: 0;
     }
+    
+    &--item {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      @include tablet() {
+      grid-template-columns: 0.4fr 0.4fr;
+      }
+      @include desktop() {
+        grid-template-columns: 0.6fr 0.6fr;
+      }
+    }
+  }
 }
 
-.detail__info--list--item {
-display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  @include tablet() {
-    grid-template-columns: 0.4fr 0.4fr;
-  }
-
-  @include desktop() {
-    grid-template-columns: 0.6fr 0.6fr;
-  }
 .detail__container--link {
   display:flex;
   justify-content: space-between;
-}
-}
-.detail__link {
-  margin-left: 20px;
- font-size:25px;
- color:white;
-
   text-decoration: none;
- 
-
-
 }
+
+.detail__link {
+  text-decoration: none;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size:25px;
+  color:white;
+  text-decoration: none;     
+  cursor: pointer;
+  transition: 0.6s;
+  transition: all 0.5s ease-out;
+  &:hover {
+    transform: scale(1.2);  
+  }
+}
+
 .icon__house {
   width: 50px;
- 
- opacity:0.7;
+  opacity:0.7;
   @include tablet{
-   width: 70px;
-  }
-  
-  
+   width: 60px;
+  }  
 }
 
 .icons__detail {
   font-size: 15px;
   margin-right: 10px;
+  text-decoration: none;
   @include tablet {
     font-size: 25px;
   }
 }
+
 .detail__info--list--house {
   padding-right: 58px;
   align-self: center;
-
-    @include tablet {
-        padding-right: 50px;
-      }
-}
-
-.prueba{
-  width: 200px;
-  color:white;
+  @include tablet {
+    padding-right: 50px;
+  }
 }

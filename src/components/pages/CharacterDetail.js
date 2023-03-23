@@ -7,11 +7,8 @@ import ErrorNotFound from "../pages/ErrorNotFound";
 
 const CharacterDetail = ({ findCharacter }) => {
 
-
-
   const params = useParams();
   const foundCharacter = findCharacter(params.id);
-
 
   const renderIconStatus = () => {
     if (foundCharacter.alive === true) {
@@ -52,7 +49,6 @@ const CharacterDetail = ({ findCharacter }) => {
     }
   }
 
-
   const renderIcongender = () => {
     if (foundCharacter.gender === 'female') {
       return (
@@ -91,43 +87,32 @@ const CharacterDetail = ({ findCharacter }) => {
     }
   }
 
-
-
   if (foundCharacter !== undefined) {
+
     return (
       <main className="detail__main">
-
         <article className="detail__container">
-
           <NavLink className="detail__container--link" to='/' >
             <i class="detail__link fa-sharp fa-solid fa-arrow-left"></i>
-
           </NavLink>
-
-
-
-
           <div className="detail__content">
             <img className="detail__img" src={foundCharacter.image !== '' ? foundCharacter.image : require('../../images/avatar7.png')} alt={foundCharacter.name} />
-
             <div className="detail__info">
               <h2 className="detail__info--title">{foundCharacter.name}</h2>
-
               <ul className="detail__info--list">
                 <li className="detail__info--list--item">
-                  <span>Status</span>
+                  <span>Status:</span>
                   <span>{renderIconStatus()}</span>
                 </li>
                 <li className="detail__info--list--item">
-                  <span>Species</span>
+                  <span>Specie:</span>
                   <span>{renderIconSpecies()}</span>
                 </li>
                 <li className="detail__info--list--item">
-                  <span>Gender</span>
+                  <span>Gender:</span>
                   <span>{renderIcongender()}</span>
                 </li>
                 <li className="detail__info--list--house">
-                  {/* <span>House</span> */}
                   <span> {renderIconHouse()}</span>
                 </li>
               </ul>

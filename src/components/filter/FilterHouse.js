@@ -14,7 +14,6 @@ const FilterHouse = ({ handleInputHouse, inputHouse }) => {
         <option value="ravenclaw">Ravenclaw</option>
       </select>
     </div>
-
   )
 }
 export default FilterHouse

@@ -1,15 +1,38 @@
 @mixin fieldset () {
-  font-size: rem(14);
   border: none;
 }
-@mixin input () {
-  border: 1px solid rgb(18, 97, 187);
-  background-color: white;
-  height: rem(30);
-  width: rem(200);
-  border-radius: 5px;
-  text-align: center;
 
+@mixin input () {
+  height: rem(32);
+  width: rem(200);
+  border: transparent;
+  outline: none;
+  border-bottom: 2px solid #464646;
+  caret-color:$primary;
+  padding: 5px;
+  transition: .5s linear;
+  // font-family: monospace;
+  letter-spacing: 1px;
+  font-size: 16px;
+  background-color: transparent;
+  
+  &:focus {
+    border: 2px solid $primary;
+    caret-color: white;
+    color:black;
+    box-shadow: 4px 4px 10px #070707;
+    border-radius: 10px;
+  }
+  &::placeholder {
+    color:  black;      
+  }
+  &:hover {
+    background-color: $primary;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px #070707;
+    border: none;
+  } 
 }
 
 @mixin parseLink () {

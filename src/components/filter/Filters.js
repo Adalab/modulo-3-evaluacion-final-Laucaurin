@@ -2,10 +2,13 @@ import FilterHouse from "../filter/FilterHouse";
 import FilterName from "../filter/FilterName";
 import FilterStatus from "../filter/FilterStatus"
 import ButtonReset from "./ButtonReset";
+
 const Filters = ({ inputName, handleInputName, handleInputHouse, inputHouse, inputStatus, handleInputStatus, handleClickReset }) => {
+
   const handleSubmit = (ev) => {
     ev.preventDefault();
   }
+
   return (
     <section className='section__form'>
       <form className="form" action="" onSubmit={handleSubmit}>
@@ -13,11 +16,9 @@ const Filters = ({ inputName, handleInputName, handleInputHouse, inputHouse, inp
         <FilterHouse inputHouse={inputHouse} handleInputHouse={handleInputHouse} />
         <FilterStatus
           inputStatus={inputStatus}
-          handleInputStatus={handleInputStatus}
-        />
+          handleInputStatus={handleInputStatus} />
         <ButtonReset
           handleClickReset={handleClickReset} />
-
       </form>
     </section>
   )

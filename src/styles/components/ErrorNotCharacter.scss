@@ -13,16 +13,13 @@
   background-repeat: no-repeat;
   padding: rem(0) rem(40) rem(0) rem(40);
   color: rgb(0, 0, 0);
-
   @include tablet {
     padding: rem(0) rem(0) rem(0) rem(90);
   }
 
-
   &--title {
     font-size: rem(50);
     margin-top: 20px;
-
   }
 
   &--text {
@@ -30,7 +27,4 @@
     font-weight: 700;
     margin-bottom: rem(5);
   }
-
- 
-
 }
