@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, NavLink } from 'react-router-dom';
 import '../styles/App.scss';
 import api from '../services/api';
 import CharacterList from './list/CharacterList';
 import Filters from './filter/Filters';
 import CharacterDetail from './pages/CharacterDetail';
-import ErrorNotFound from './ErrorNotFound';
+import ErrorNotFound from './pages/ErrorNotFound';
 import logo from '../images/header.png'
+import Loader from './pages/Loader';
 
 // Ej img: import logoMenu from '../images/ico-menu.svg';
 
@@ -16,12 +17,15 @@ function App() {
   const [inputName, setInputName] = useState('');
   const [inputHouse, setInputHouse] = useState('gryffindor');
   const [inputStatus, setInputStatus] = useState('all');
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     api.getCharactersByHouse(inputHouse)
       .then(infoCharacters => {
-        setCharacterList(infoCharacters);
+        setCharacterList(infoCharacters)
+        setIsLoading(false);
       })
+
   }, [inputHouse]);
 
 
@@ -70,18 +74,18 @@ function App() {
     setInputHouse('gryffindor')
     setInputStatus('all')
   }
+  if (isLoading === false) {
+    return (
+      <div className='container'>
+        <header className='header'>
+          <NavLink to='/' ><img className='header__img' src={logo} alt="" /></NavLink>
 
-  return (
-    <div className='container'>
-      <header className='header'>
-        <img className='header__img' src={logo} alt="" />
-        {/* <img className='header__img2' src={logo2} alt="" /> */}
 
-      </header>
-      <main className='main'>
+        </header>
+
         <Routes>
           <Route exact path="/" element={
-            <>
+            <main className='main'>
               <Filters
                 inputName={inputName}
                 handleInputName={handleInputName}
@@ -92,15 +96,25 @@ function App() {
                 handleClickReset={handleClickReset}
               />
               <CharacterList
-                characterList={renderFilteredList()} />
-            </>} />
+                characterList={renderFilteredList()}
+                inputName={inputName} />
+
+
+            </main>
+          } />
 
           <Route path="/character/:id" element={<CharacterDetail characterList={characterList} findCharacter={findCharacter} />} />
           <Route path='*' element={<ErrorNotFound />} />
+
         </Routes>
-      </main>
-    </div>
-  );
+
+      </div>
+    );
+  } else {
+    return (
+      <Loader />
+    );
+  }
 }
 
 export default App;

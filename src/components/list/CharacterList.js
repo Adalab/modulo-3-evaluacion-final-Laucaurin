@@ -1,6 +1,7 @@
+import ErrorNotCharacter from "../pages/ErrorNotCharacter";
 import CharacterCard from "../list/CharacterCard";
 
-const CharacterList = ({ characterList }) => {
+const CharacterList = ({ characterList, inputName }) => {
   const renderList = () => {
     if (characterList.length !== 0) {
       return characterList.map(eachCharacter => {
@@ -8,7 +9,7 @@ const CharacterList = ({ characterList }) => {
       })
     } else {
       return (
-        <p>No existen personajes con el nombre</p>
+        <ErrorNotCharacter inputName={inputName} />
       );
     }
   }

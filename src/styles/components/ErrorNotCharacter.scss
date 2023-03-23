@@ -1,0 +1,36 @@
+.error__character {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: auto;
+  width: 60vw;
+  height: 50vh;
+  border-radius: 15px;
+  background-image: url(../../images/12.jpg);
+  background-position-x: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: rem(0) rem(40) rem(0) rem(40);
+  color: rgb(0, 0, 0);
+
+  @include tablet {
+    padding: rem(0) rem(0) rem(0) rem(90);
+  }
+
+
+  &--title {
+    font-size: rem(50);
+    margin-top: 20px;
+
+  }
+
+  &--text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: rem(5);
+  }
+
+ 
+
+}

@@ -3,7 +3,7 @@ import gryImg from '../../images/gry.png'
 import huffImg from '../../images/huff.png'
 import ravImg from '../../images/rav.png'
 import slyImg from '../../images/sly.png'
-import ErrorNotFound from "../ErrorNotFound";
+import ErrorNotFound from "../pages/ErrorNotFound";
 
 const CharacterDetail = ({ findCharacter }) => {
 
@@ -95,37 +95,46 @@ const CharacterDetail = ({ findCharacter }) => {
 
   if (foundCharacter !== undefined) {
     return (
-      <article className="detail__container">
-        <NavLink className='detail__link' to='/' > Go back</NavLink>
-        <div className="detail__content">
+      <main className="detail__main">
 
-          <img className="detail__img" src={foundCharacter.image !== '' ? foundCharacter.image : require('../../images/avatar7.png')} alt={foundCharacter.name} />
-          {/* <span>{renderIconHouse()}</span> */}
-          <div className="detail__info">
+        <article className="detail__container">
 
-            <h2 className="detail__info--title">{foundCharacter.name}</h2>
-            <ul className="detail__info--list">
-              <li className="detail__info--list--item">
-                <span>Status</span>
-                <span>{renderIconStatus()}</span>
-              </li>
-              <li className="detail__info--list--item">
-                <span>Species</span>
-                <span>{renderIconSpecies()}</span>
-              </li>
-              <li className="detail__info--list--item">
-                <span>Gender</span>
-                <span>{renderIcongender()}</span>
-              </li>
-              <li className="detail__info--list--item">
-                <span>House</span>
-                <span>{foundCharacter.house}</span>
-              </li>
+          <NavLink className="detail__container--link" to='/' >
+            <i class="detail__link fa-sharp fa-solid fa-arrow-left"></i>
 
-            </ul>
+          </NavLink>
+
+
+
+
+          <div className="detail__content">
+            <img className="detail__img" src={foundCharacter.image !== '' ? foundCharacter.image : require('../../images/avatar7.png')} alt={foundCharacter.name} />
+
+            <div className="detail__info">
+              <h2 className="detail__info--title">{foundCharacter.name}</h2>
+
+              <ul className="detail__info--list">
+                <li className="detail__info--list--item">
+                  <span>Status</span>
+                  <span>{renderIconStatus()}</span>
+                </li>
+                <li className="detail__info--list--item">
+                  <span>Species</span>
+                  <span>{renderIconSpecies()}</span>
+                </li>
+                <li className="detail__info--list--item">
+                  <span>Gender</span>
+                  <span>{renderIcongender()}</span>
+                </li>
+                <li className="detail__info--list--house">
+                  {/* <span>House</span> */}
+                  <span> {renderIconHouse()}</span>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </main>
     )
   } else {
     return (

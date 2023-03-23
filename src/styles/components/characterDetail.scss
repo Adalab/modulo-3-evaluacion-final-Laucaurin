@@ -1,86 +1,176 @@
-
+.detail__main {
+height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 .detail__container {
-    background-color: $primary;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-      border-radius: 3.125rem;
-      box-shadow: 0 0 1.5625rem #a1a381;
-      
-      padding: rem(30) rem(60);
-      margin: 0 auto;
-      width: 20rem;
-      @include tablet {
-        
-        width: rem(600);
-        height: 400px;
-        
-      }
-      
-}
-.detail__link {
-  align-self: flex-start;
-  color: #221f20;
-  position: absolute;
-  text-decoration: none;
-  -webkit-transform: translate(-5.3125rem, 0.625rem);
-  transform: translate(-5.3125rem, 0.625rem);
-
-}
-.detail__content {
-        
-        display: flex;
-        flex-direction: column;
-
-          @include tablet {
+         //General properties
+        padding-top: rem(20);
+        padding-bottom:rem(20);
+   
+        background-color: $secundary;
+      box-shadow: rgba(228, 221, 165, 0.74) 0px 8px 24px;
+        @include tablet(){
             flex-direction: row;
-            justify-content: space-between;
-            gap: 30px;
-            align-items:flex-start
-  
-          }
+            padding-left: rem(20);
+            padding-right: rem(20);
+            
+        }
+    
+      
 }
+
+.detail__content {
+    
+          justify-self: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+         
+    
+          color:white;
+        
+          @include tablet() {
+            flex-direction: row;
+            padding-top: rem(0);
+            gap: 30px;
+          }
+        
+        
+           
+          }
+
 .detail__img {
+ 
+//General properties
+  width: rem(180);
+  height: rem(180);
   border-radius: 50%;
-  box-shadow: 0 8px 24px hsla(0, 0%, 100%, 0.2);
-  height: 11.25rem;
+  box-shadow: rgba(208, 223, 148, 0.697) 0px 8px 24px;
+  //Display
   object-fit: cover;
   object-position: center;
-  width: 11.25rem;
+ margin: 0 30px 30px  30px;
+
+  @include tablet() {
+    width: rem(220);
+    height: rem(220);
+  }
+
+  @include desktop() {
+    width: rem(300);
+    height: rem(300);
+  }
 }
 .detail__info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9375rem;
-  width: 9.375rem;
+  //General properties
+    width: rem(280);
+    //Display
+    display: flex;
+    flex-direction: column;
+    gap: rem(15);
+  
+    @include tablet() {
+      width: rem(300);
+    
+    }
+  
+    @include desktop() {
+      width: rem(230); 
+       margin-right: 25px;
+    }
 }
 .detail__info--title {
-  font-size: rem(18);
-  text-align: start;
+  font-size: rem(16);
+  text-align: center;
+  
+    @include tablet() {
+      font-size: rem(20);
+      padding-bottom: rem(15);
+      text-align: start;
+    }
+  
+    @include desktop() {
+      font-size: rem(24);
+      padding-bottom: rem(20);
+    }
 }
 .detail__info--list {
-  display: flex;
-  flex-direction: column;
-
+  //General properties
+  // position: relative;
+  // bottom: 70px;
+    list-style: none;
+    font-size: rem(14);
+    gap: rem(10);
+    //Display
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
   
-  font-size: .75rem;
-  gap: 0.625rem;
-  list-style: none;
+    @include tablet() {
+      font-size: rem(18);
+      gap: rem(15);
+      margin-left: 0;
+    }
 }
 
 .detail__info--list--item {
-  display: grid;
+display: grid;
   grid-template-columns: 1fr 1fr;
-}
 
+  @include tablet() {
+    grid-template-columns: 0.4fr 0.4fr;
+  }
+
+  @include desktop() {
+    grid-template-columns: 0.6fr 0.6fr;
+  }
+.detail__container--link {
+  display:flex;
+  justify-content: space-between;
+}
+}
+.detail__link {
+  margin-left: 20px;
+ font-size:25px;
+ color:white;
+
+  text-decoration: none;
+ 
+
+
+}
 .icon__house {
   width: 50px;
+ 
+ opacity:0.7;
+  @include tablet{
+   width: 70px;
+  }
+  
   
 }
 
 .icons__detail {
   font-size: 15px;
   margin-right: 10px;
+  @include tablet {
+    font-size: 25px;
+  }
+}
+.detail__info--list--house {
+  padding-right: 58px;
+  align-self: center;
+
+    @include tablet {
+        padding-right: 50px;
+      }
+}
+
+.prueba{
+  width: 200px;
+  color:white;
 }
